@@ -171,7 +171,7 @@
 				</div>
   			</div>
 			</a><br>
-			<img src="images/baking2.jpg" >
+			<img src="images/ResidentialAreaGuardPost.jpg" >
 		</div>
 
 		<div class="slidesImg">
@@ -184,7 +184,7 @@
 					Please book for the facilities if you wanted to use the facilities.
 				</div>
   			</div><br>
-			<img src="images/bakingBasics.jpg">
+			<img src="images/ComunityHall.jpg">
 		</div>
 
 		<div class="slidesImg">
@@ -197,7 +197,7 @@
 					The visitor are required to register themselve before entering the residential association. The security department will check for their crediential before letting them entering the residential association.  
 				</div>
   			</div><br>
-			<img src="images/breadBaking.jpg">
+			<img src="images/SecurityDepartment.jpg">
 		</div>
 
 		<div class="slidesImg">
@@ -210,7 +210,7 @@
 					Most of the function of management have been digitalise. The resident can seek for management online. This simplify the resident by no need to go to the management office.
 				</div>
   			</div><br>
-			<img src="images/breadBaking.jpg">
+			<img src="images/Management.jpg">
 		</div>
 
 		<a class="prev" onclick="plusSlides(-1)">❮</a>
