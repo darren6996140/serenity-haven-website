@@ -9,7 +9,7 @@ $mysql = mysqli_query($conn, "SELECT * FROM user WHERE email= '$email'");
 $row = mysqli_fetch_array($mysql);
 
 $name = $row['name'];
-$class = $row['class'];
+$status = $row['status'];
 
 if(!isset($email))
 {

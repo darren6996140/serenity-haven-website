@@ -6,6 +6,7 @@ $email=$_POST['email'];
 $oldPassword = $_POST['password'];
 $password = hash('sha256', $oldPassword);
 $noPhone=$_POST['noPhone'];
+$status=$_POST['status'];
 
 $check = "SELECT email FROM user WHERE email = '$email'";
 $result = mysqli_query($conn, $check) or die(mysqli_error());
@@ -20,8 +21,8 @@ if (mysqli_num_rows($result)> 0)
 else{
 
 	$mysql= "INSERT INTO user
-	(email, password, name, noPhone, class)
-	VALUES ('$email', '$password', '$name', '$noPhone' , 1)";
+	(email, password, name, noPhone, status)
+	VALUES ('$email', '$password', '$name', '$noPhone' , '$status')";
 	
 if (mysqli_query($conn, $mysql)){
 

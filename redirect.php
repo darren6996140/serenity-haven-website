@@ -1,13 +1,28 @@
 <?php
 include("session.php");
 
-if ($class == 0){
+if ($status == "admin"){
     header('Location: mainpageAdmin.php');
     exit();
 }
 
-elseif ($class == 1){
-    header('Location: mainpageUser.php');
+elseif ($status == "agent"){
+    header('Location: mainpageAgent.php');
+    exit();
+}
+
+elseif ($status == "owner"){
+    header('Location: mainpageOwner.php');
+    exit();
+}
+
+elseif ($status == "security"){
+    header('Location: mainpageSecurity.php');
+    exit();
+}
+
+elseif ($status == "tenant"){
+    header('Location: mainpageTenant.php');
     exit();
 }
 

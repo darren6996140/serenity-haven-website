@@ -36,6 +36,10 @@
             text-align: right;
         }
 
+        .userForm #left {
+            text-align: left;
+        }
+
         .userForm .form {
             padding: 10px;
             width: 200px;
@@ -120,6 +124,17 @@
                     <td></td>
                     <td>Phone Number :</td>
                     <td><input type="text" name="noPhone" placeholder="0121234567" class="form" required></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>Status: </td>
+                    <td id="left">
+                        <input type="radio" name="status" value="agent" id="agent"><label for="agent">Agent</label>
+                        <input type="radio" name="status" value="owner" id="owner"><label for="owner">Owner</label>
+                        <input type="radio" name="status" value="tenant" id="tenant"><label for="tenant">Tenant</label>
+                    </td>
                     <td></td>
                 </tr>
 
