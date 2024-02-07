@@ -43,12 +43,12 @@
 
 		.header .left
 		{
-			flex: 9%;
+			flex: 12%;
 		}
 
 		.header .center
 		{
-			flex: 82%;
+			flex: 76%;
 			color: black;
 			border-radius: 8px;
 		}
@@ -57,11 +57,12 @@
 		{
 			color: black;
 			text-decoration: none;
+			font-size: 130%;
 		}
 
 		.header .right
 		{
-			flex: 9%;
+			flex: 12%;
 			font-size: 170%;
 	  		cursor: pointer;
   			color: black;
@@ -202,12 +203,8 @@
 		<h1><a href="index.php">Serenity Haven</a></h1>
   	</div>
 
-	  <div class="right">
-		<a href="visitorRegistrationForm.php" class="Visitor Registration">Visitor Registration</a>  
-	  </div>
-
 	<div class="right">
-		<a href="loginForm.php" class="login">Login</a>  
+		<a href="loginForm.php" class="login">Login/Registration</a>  
   	</div>
 
 </div>
