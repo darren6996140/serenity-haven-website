@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="lightTheme">
+<html lang="en" class="theme">
 <head>
 	
 	<title>The Cake Whisperer</title>
@@ -10,33 +10,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<style>
-		.lightTheme {  
+		.theme {  
 			--text: black;
 			--background: rgba(235, 235, 235, 0.5);
 			--sidebarBackground: rgba(235, 235, 235, 0.95);
 			--overlay: rgba(255, 255, 255, 0.5);
 			--arrowHover: rgba(0, 0, 0, 0.3);
 			--table: rgba(235, 235, 235);
-		}
-
-		.darkTheme {  
-			--text: white;
-			--background: rgba(50, 50, 50, 0.5);
-			--sidebarBackground: rgba(50, 50, 50, 0.95);
-			--overlay: rgba(50, 50, 50, 0.5);
-			--arrowHover: rgba(235, 235, 235, 0.3);
-			--table: rgba(50, 50, 50);
-		}
-
-		body
-		{
-			padding: 10px;
-			font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
-			margin: 0;
-			background-image: url('images/baking<?php echo(rand(0,4)); ?>.jpg');
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			background-size: cover;
 		}
 
 		.header
@@ -71,7 +51,7 @@
 		.header .right
 		{
 			flex: 9%;
-			font-size: 170%;
+			font-size: 130%;
 	  		cursor: pointer;
   			color: var(--text);
 			padding: 30px 25px 30px 15px;
@@ -80,7 +60,7 @@
 
 		.header .right a
 		{
-			color: var(--text);
+			color: red;
 		}
 
 
@@ -92,17 +72,6 @@
   			padding: 30px 15px;
   			border: none;
 			border-radius: 8px;
-		}
-
-		.header .profile{
-			width: 50px;
-			height: 50px;
-			color: white;
-			padding: 6px;
-			font-size: 16px;
-			border: none;
-			cursor: pointer;
-			transition: 0.5s;
 		}
 
 		.sidebar {
@@ -185,46 +154,6 @@
 			color: var(--text);
 		}
 
-		.show {
-			display: block;
-		}
-
-		.dropdown {
-			position: relative;
-			display: inline-block;
-		}
-
-		.dropdownContent {
-			display: none;
-			position: absolute;
-			right: -60px;
-			background-color: var(--sidebarBackground);
-			min-width: 160px;
-			overflow: visible;
-			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-			z-index: 1;
-			font-size: 70%;
-		}
-
-		.profile:hover, .profile:focus {
-			background-color: rgba(75, 171, 255, 0.75);
-		}
-
-		.dropdownContent a {
-			color: var(--text);
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-		}
-
-		.dropdown a:hover {
-			background-color: #ddd;
-		}
-
-		.show {
-			display: block;
-		}
-
 	</style>
 
 </head>
@@ -252,19 +181,12 @@
 	</div>
 
     <div class="center">
-		<h1><a href="mainpageUser.php">The Cake Whisperer</a></h1>
+		<h1><a href="mainpageUser.php">Serenity Haven</a></h1>
   	</div>
 
-	  <div class="right">
-		<div class="dropdown">
-		<img src="images/defaultProfile.png" alt="profile picture" class="profile" onclick="dropdown()">
-			<div id="dropdownContent" class="dropdownContent">
-				<a href="yourCourses.php">Your Courses</a>
-				<a href="#" class="theme" onclick="toggleTheme()">&#9789; Change Theme</a>
-				<a href="logout.php" style="color: red">Log Out</a>
-			</div>
-		</div>
-  	</div>
+	<div class="right">
+		<a href="logout.php">Log Out</a>
+	</div>
 
 </div>
 
@@ -278,51 +200,6 @@
 		document.getElementById("sidebar").style.width = "0";
 		document.getElementById("main").style.marginLeft= "0";
 	}
-
-	function dropdown() {
-      document.getElementById("dropdownContent").classList.toggle("show");
-    }
-
-    window.onclick = function(event) {
-
-		if (!event.target.matches('.profile')) {
-
-			var dropdowns = document.getElementsByClassName("dropdownContent");
-			var i;
-		
-			for (i = 0; i < dropdowns.length; i++) {
-				
-				var openDropdown = dropdowns[i];
-				
-				if (openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
-			}
-		}
-	}
-
-	function setTheme(themeName) {
-		localStorage.setItem('theme', themeName);
-		document.documentElement.className = themeName;
-	}
-
-	function toggleTheme() {
-		if (localStorage.getItem('theme') === 'darkTheme'){
-			setTheme('lightTheme');
-		} 
-		else {
-			setTheme('darkTheme');
-		}
-	}
-
-	(function () {
-            if (localStorage.getItem('theme') === 'darkTheme') {
-                setTheme('darkTheme');
-            } else {
-                setTheme('lightTheme');
-            }
-        })();
-
 	</script>
 	
 	<br>

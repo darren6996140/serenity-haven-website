@@ -1,394 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include("session.php");
-include("headerUser.php");
+//include("session.php");
+include("headerOwner.php");
 ?>
 <head>
 
-	<?php
-		$mysql = "SELECT idCourse FROM regcourse WHERE email  = '$email'";
-		$result = mysqli_query($conn, $mysql) or die(mysql_error());
-
-		$courseRegistered = array();
-
-		if (mysqli_num_rows($result) > 0){
-			while($row = mysqli_fetch_assoc($result)){
-				array_push($courseRegistered, $row['idCourse']);
-			}
-		}
-
-		$course1 = array_search("1", $courseRegistered);
-        $course2 = array_search("2", $courseRegistered);
-        $course3 = array_search("3", $courseRegistered);
-        $course4 = array_search("4", $courseRegistered);
-        $course5 = array_search("5", $courseRegistered);
-
-		$numCourses = count($courseRegistered);
-
-		function printCourse1Big(){
-			echo '<div class="slidesImg">';
-			echo '<a href="yourCourses.php">';
-			echo '<div class="slidesOverlay">';
-			echo '<div class="slidesText">';
-			echo 'You are registered to: <b>Baking Basics</b>';
-			echo '<br><br>';
-			echo 'Click here to check the timetable for this course.';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo '<img src="images/bakingBasics.jpg">';
-			echo '</div>';
-		}
-
-		function printCourse2Big(){
-			echo '<div class="slidesImg">';
-			echo '<a href="yourCourses.php">';
-			echo'<div class="slidesOverlay">';
-			echo '<div class="slidesText">';
-			echo 'You are registered to: <b>Bread Baking</b>';
-			echo '<br><br>';
-			echo 'Click here to check the timetable for this course.';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo'<img src="images/breadBaking.jpg">';
-			echo '</div>';
-		}
-
-		function printCourse3Big(){
-			echo '<div class="slidesImg">';
-			echo '<a href="yourCourses.php">';
-			echo'<div class="slidesOverlay">';
-			echo '<div class="slidesText">';
-			echo 'You are registered to: <b>Cake Decorations</b>';
-			echo '<br><br>';
-			echo 'Click here to check the timetable for this course.';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo'<img src="images/cakeDecorations.jpg">';
-			echo '</div>';
-		}
-
-		function printCourse4Big(){
-			echo '<div class="slidesImg">';
-			echo '<a href="yourCourses.php">';
-			echo'<div class="slidesOverlay">';
-			echo '<div class="slidesText">';
-			echo 'You are registered to: <b>Cookies Baking</b>';
-			echo '<br><br>';
-			echo 'Click here to check the timetable for this course.';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo'<img src="images/cookiesBaking.jpg">';
-			echo '</div>';
-		}
-
-		function printCourse5Big(){
-			echo '<div class="slidesImg">';
-			echo '<a href="yourCourses.php">';
-			echo'<div class="slidesOverlay">';
-			echo '<div class="slidesText">';
-			echo 'You are registered to: <b>Pastry Baking</b>';
-			echo '<br><br>';
-			echo 'Click here to check the timetable for this course.';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo'<img src="images/pastryBaking.jpg">';
-			echo '</div>';
-		}
-
-		function printDefaultBig(){
-			echo '<div class="slidesImg">';
-			echo '<a href="courseForm.php">';
-			echo'<div class="slidesOverlay">';
-			echo '<div class="slidesText">';
-			echo 'It seems like you are not registered to any classes yet, click here to register to our classes now!';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo'<img src="images/baking0.jpg">';
-			echo '</div>';
-		}
-
-		function printCourse1Small(){
-			echo '<div class="coursesImg">';
-			echo '<a href="courseForm.php">';
-			echo '<div class="coursesOverlay">';
-			echo '<div class="coursesText">';
-			echo 'Baking Basics';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo '<img src="images/bakingBasics.jpg">';
-			echo '</div>';
-		}
-
-		function printCourse2Small(){
-			echo '<div class="coursesImg">';
-			echo '<a href="courseForm.php">';
-			echo '<div class="coursesOverlay">';
-			echo '<div class="coursesText">';
-			echo 'Bread Baking';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo '<img src="images/breadBaking.jpg">';
-			echo '</div>';
-		}
-
-		function printCourse3Small(){
-			echo '<div class="coursesImg">';
-			echo '<a href="courseForm.php">';
-			echo '<div class="coursesOverlay">';
-			echo '<div class="coursesText">';
-			echo 'Cake Decorations';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo '<img src="images/cakeDecorations.jpg">';
-			echo '</div>';
-		}
-
-		function printCourse4Small(){
-			echo '<div class="coursesImg">';
-			echo '<a href="courseForm.php">';
-			echo '<div class="coursesOverlay">';
-			echo '<div class="coursesText">';
-			echo 'Cookies Baking';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo '<img src="images/cookiesBaking.jpg">';
-			echo '</div>';
-		}
-
-		function printCourse5Small(){
-			echo '<div class="coursesImg">';
-			echo '<a href="courseForm.php">';
-			echo '<div class="coursesOverlay">';
-			echo '<div class="coursesText">';
-			echo 'Pastry Baking';
-			echo '</div>';
-			echo '</div>';
-			echo '</a><br>';
-			echo '<img src="images/pastryBaking.jpg">';
-			echo '</div>';
-		}
-
-	?>
-
 	<style>
-		.slidesImg img , .coursesImg img {
-			display: block;
-			width: 70%;
-			margin-left: auto;
-			margin-right: auto;
-			animation-name: fadein;
-  			animation-duration: 1.0s;
-			transition: 0.5s ease;
-			border-radius: 5px;
+		body
+		{
+			padding: 10px;
+			font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+			margin: 0;
+			background-image: url('images/baking<?php echo(rand(0,4)); ?>.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
 		}
 
-		.slidesContainer, .coursesContainer {
-			position: relative;
+
+		.user, .courses{
+            background-color: rgba(235, 235, 235, 0.5);
+            padding-bottom: 20px;
+            border-radius: 5px;
+			text-align: center;
+        }
+
+		.user h1, .courses h1{
+            font-size: 300%;
+            font-weight: bold;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding: 10px 0px;
+        }
+
+		.user .userForm, .courses .coursesForm {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+		.user .order, .courses .order{
+            font-size: 150%;
+            border-radius: 5px;
+            border: solid;
+            border-width: 2px;
+			margin-right: 1%;
+			transition: 0.3s;
+        }
+
+		.user .order:hover, .courses .order:hover{
+			background-color: rgba(233, 233, 237,0.5);
+        }
+
+		.user .button, .courses .button {
+            background-color: white;
+            font-size: 150%;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            transition: 0.2s;
+        }
+
+		.user .button:hover, .courses .button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+		.user .table, .courses .table{
+            padding: 10px;
+            border: 1px solid black;
+			text-align: center;
+			background-color: rgb(235, 235, 235);
 			margin: auto;
-			transition: 0.5s ease;
-			opacity: 1;
 			border-radius: 5px;
-		}
+        }
 
-		.prev, .next {
-			cursor: pointer;
-			position: absolute;
-			top: 50%;
-			width: auto;
-			padding: 16px;
-			margin-top: -22px;
-			color: var(--text);
-			font-weight: bold;
-			font-size: 250%;
-			transition: 0.3s ease;
-			border-radius: 0 3px 3px 0;
-			user-select: none;
-		}
-
-		.next {
-			right: 0;
-			border-radius: 3px 0 0 3px;
-		}
-
-		.prev:hover, .next:hover {
-			background-color: var(--arrowHover);
-		}
-
-		.slidesContainer .selectionDot {
-			cursor: pointer;
-			height: 15px;
-			width: 15px;
-			margin: 0 2px;
-			background-color: #bbb;
-			border-radius: 50%;
-			display: inline-block;
-			transition: background-color 0.5s ease;
-		}
-
-		.active, .selectionDot:hover {
-			background-color: rgb(113, 113, 113);
-		}
-
-		.slidesImg:hover .slidesOverlay , .coursesImg:hover .coursesOverlay{
-			opacity: 1;
-		}
-
-		.slidesOverlay {
-			display: block;
-			position: absolute;
-			height: 95%;
-			width: 100%;
-			opacity: 0;
-			transition: 0.5s ease;
-			background-color: var(--overlay);
-			border-radius: 5px;
-		}
-
-		.slidesOverlay .slidesText {
-			color: var(--text);
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			-webkit-transform: translate(-50%, -50%);
-			-ms-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
-			text-align: left;
-			transition: 0.5s ease;
-		}
-
-		.coursesOverlay {
-			position: absolute;
-			height: 110%;
-
-			<?php
-			if($numCourses == 0){
-				echo 'width: 20%;';
-			}
-			elseif($numCourses == 1){
-				echo 'width: 25%;';
-			}
-			elseif($numCourses == 2){
-				echo 'width: 33.33%;';
-			}
-			elseif($numCourses == 3){
-				echo 'width: 50%;';
-			}
-			else{
-				echo 'width; 33.33%;';
-			}
-			?>
-
-			opacity: 0;
-			transition: 0.5s ease;
-			background-color: var(--overlay);
-			border-radius: 5px;
-		}
-
-		.coursesOverlay .coursesText {
-			color: var(--text);
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			-webkit-transform: translate(-50%, -50%);
-			-ms-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
-			text-align: left;
-			transition: 0.5s ease;
-		}
-
-		.slidesContainer .slidesImg .slidesOverlay .slidesText{
-			font-size: 200%;
-		}
-
-		.coursesContainer .coursesImg .coursesOverlay .coursesText{
-			font-size: 220%;
-		}
-
-		@keyframes fadein {
-			from {
-				opacity: 0.3
-			}
-
-			to {
-				opacity: 1
-			}
-		}
-
-		@media screen and (max-width: 850px) {
-			.prev, .next, .slidesContainer .slidesImg .slidesOverlay .slidesText{
-				font-size: 100%;
-			}
-		}
-
-		@media screen and (max-width: 850px) {
-			.coursesContainer .coursesImg .coursesOverlay .coursesText{
-				font-size: 150%;
-			}
-		}
-
-		.coursesContainer{
-			display: flex;
-		}
-
-		.coursesImg{
-			<?php
-			if($numCourses == 0){
-				echo 'width: 20%;';
-			}
-			elseif($numCourses == 1){
-				echo 'width: 25%;';
-			}
-			elseif($numCourses == 2){
-				echo 'width: 33.33%;';
-			}
-			elseif($numCourses == 3){
-				echo 'width: 50%;';
-			}
-			else{
-				echo 'width; 33.33%;';
-			}
-			?>
-		}
-
-		.bodyTitle{
-			color: var(--text);
+		.user .table td, .courses .table td{ 
 			text-align: center;
-			font-size: 300%;
-			font-family: andale mono, monospace;
-			font-weight: bold;
-			background-color: var(--overlay);
-			margin-left: 25%;
-			margin-right: 25%;
-			padding-top: 2%;
-			padding-bottom: 2%;
-			border-radius: 5px;
+			height: 25px;
+			font-size: 100%;
+			padding: 10px 20px;
 		}
 
-		.bodyTitleSmall{
-			color: var(--text);
+		.user .table th, .courses .table th{
+			font-size: 150%;
 			text-align: center;
-			font-size: 200%;
-			font-family: andale mono, monospace;
 			font-weight: bold;
-			background-color: var(--overlay);
-			margin-left: 30%;
-			margin-right: 30%;
-			padding: 2%;
-			border-radius: 5px;
 			text-decoration: underline;
+			padding: 20px 10px;
 		}
-		
 
 	</style>
 	
@@ -396,153 +96,170 @@ include("headerUser.php");
 
 <body>
 
-	<h1 class="bodyTitle">Your Registered Courses</h1>
+	<br>
 
-	<div class="slidesContainer">
+	<div class="user">
 
-		<?php
-		if($course1 != ""){
-            printCourse1Big();
-        }
+		<h1>Database User</h1>
 
-        if($course2 != ""){
-            printCourse2Big();
-        }
-
-        if($course3 != ""){
-            printCourse3Big();
-        }
-
-        if($course4 != ""){
-            printCourse4Big();
-        }
-
-        if($course5 != ""){
-            printCourse5Big();
-        }
-
-		else{
-			printDefaultBig();
-		}
-		?>
-
-		<a class="prev" onclick="plusSlides(-1)">❮</a>
-		<a class="next" onclick="plusSlides(1)">❯</a>
-
-		<br>
-
-		<div style="text-align: center;">
-
-			<?php
-			if ($numCourses == 1){
-				echo '<span class="selectionDot" onclick="currentSlide(1)"></span>';
-			}
-			elseif ($numCourses == 2){
-				echo '<span class="selectionDot" onclick="currentSlide(1)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(2)"></span>';				
-			}
-			elseif ($numCourses == 3){
-				echo '<span class="selectionDot" onclick="currentSlide(1)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(2)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(3)"></span>';
-			}
-			elseif ($numCourses == 4){
-				echo '<span class="selectionDot" onclick="currentSlide(1)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(2)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(3)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(4)"></span>';
-			}
-			elseif ($numCourses == 5){
-				echo '<span class="selectionDot" onclick="currentSlide(1)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(2)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(3)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(4)"></span>';
-				echo '<span class="selectionDot" onclick="currentSlide(5)"></span>';
-			}
-			else{
-				echo '<span class="selectionDot" onclick="currentSlide(1)"></span>';
-			}		
-			?>
-
+		<div class="userForm">
+			<center>
+			<form action="" method="POST">
+				<select name="orderUser" class="order" required>
+					<option value="">Sort By</option>
+					<option value="name">Name</option>
+					<option value="email">Email</option>
+					<option value="phone">Phone Number</option>
+				</select>
+				<input type="submit" value="Find" name="findUser" class="button"> 
+			</form>
+			</center>
 		</div>
 
+		<?php
+		
+		$query = "SELECT * FROM user WHERE class=2";
+
+		if(isset($_POST['findUser']))
+		{
+
+			if($_POST['orderUser'] == "email"){
+				$query = "SELECT * FROM user WHERE class=1 ORDER BY email";
+			}
+
+			elseif($_POST['orderUser'] == "name"){
+				$query = "SELECT * FROM user WHERE class=1 ORDER BY name";
+			}
+
+			elseif($_POST['orderUser'] == "phone"){
+				$query = "SELECT * FROM user WHERE class=1 ORDER BY noPhone";
+			}
+
+			else{
+				exit();
+			}
+		}
+
+		$result = mysqli_query($conn, $query) or die(mysql_error());
+
+		if (mysqli_num_rows ($result) > 0)
+		{
+			echo "<table class='table'>";
+			echo "<col>";
+			echo "<col>";
+			echo "<col>";
+			echo "<tr>";
+			echo "<th>Email</th>";
+			echo "<th>Name</th>";
+			echo "<th>Phone Number</th>";
+
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				echo "<tr>";
+				echo "<td>".$row['email']."</td>";
+				echo "<td>".$row['name']."</td>";
+				echo "<td>".$row['noPhone']."</td>";
+				echo "</tr>";
+			}
+
+			echo"</table>";
+		}
+
+		else{
+			echo"<h1><u>No data</u></h1>";
+		}
+
+		?>
+	
 	</div>
 
 	<br>
 
-	<h1 class="bodyTitle">Other Courses Offered</h1>
+	<div class="courses">
 
-	<div class="coursesContainer">
-		
+		<h1>Student's Registrations</h1>
+
+		<div class="coursesForm">
+			<center>
+			<form action="" method="POST">
+				<select name="orderCourses" class="order" required>
+					<option value="">Sort By</option>
+					<option value="email">Email</option>
+					<option value="duration">Duration</option>
+				</select>
+				<select name="filterCourses" class="order" required>
+					<option value="">Filter By</option>
+					<option value=1>Baking Basics</option>
+					<option value=2>Bread Baking</option>
+					<option value=3>Cake Decorations</option>
+					<option value=4>Cookies Baking</option>
+					<option value=5>Pastry Baking</option>
+				</select>
+				<input type="submit" value="Find" name="findCourses" class="button"> 
+			</form>
+			</center>
+		</div>
+
 		<?php
+		
+		$query = "SELECT * FROM regcourse WHERE idCourse=0;";
 
-		if($course1 == ""){
-            printCourse1Small();
-        }
+		error_reporting(E_ERROR | E_PARSE);
+		$courseNumber = $_POST['filterCourses'];
 
-        if($course2 == ""){
-            printCourse2Small();
-        }
+		if(isset($_POST['findCourses']))
+		{
+			
+			if($_POST['orderCourses'] == "email"){
+				$query = "SELECT regcourse.id, regcourse.email, user.name, course.courseName, regcourse.duration FROM regcourse INNER JOIN user ON regcourse.email = user.email INNER JOIN course ON regcourse.idCourse = course.idCourse WHERE regcourse.idCourse = '$courseNumber' ORDER BY email";
+			}
+			
+			elseif($_POST['orderCourses'] == "duration"){
+				$query = "SELECT regcourse.id, regcourse.email, user.name, course.courseName, regcourse.duration FROM regcourse INNER JOIN user ON regcourse.email = user.email INNER JOIN course ON regcourse.idCourse = course.idCourse WHERE regcourse.idCourse = '$courseNumber' ORDER BY duration";
+			}
 
-        if($course3 == ""){
-            printCourse3Small();
-        }
-
-        if($course4 == ""){
-            printCourse4Small();
-        }
-
-        if($course5 == ""){
-            printCourse5Small();
-        }
-
-		else{
-			echo'<h1 class="bodyTitleSmall">You Have Registered For All The Classes</h1>';
+			else{
+				exit();
+			}
 		}
+		
+		$result = mysqli_query($conn, $query) or die(mysql_error());
 
+		if (mysqli_num_rows ($result) > 0)
+		{
+			echo "<table class='table'>";
+			echo "<col>"; 
+			echo "<col>";
+			echo "<col>";
+			echo "<col>"; 
+			echo "<tr>";
+			echo "<th>ID</th>";
+			echo "<th>Email</th>";
+			echo "<th>Name</th>";
+			echo "<th>Course</th>";
+			echo "<th>Duration</th>";
+
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				echo "<tr>";
+				echo "<td>".$row['id']."</td>";
+				echo "<td>".$row['email']."</td>";
+				echo "<td>".$row['name']."</td>";
+				echo "<td>".$row['courseName']."</td>";
+				echo "<td>".$row['duration']."</td>";
+				echo "</tr>";
+			}
+
+			echo"</table>";
+		}
+		
+		else{
+			echo"<h1><u>No data</u></h1>";
+		}
+		
 		?>
 
 	</div>
-
-	<br><br>
-
-	<script>
-		let slideIndex = 1;
-		showSlides(slideIndex);
-
-		function plusSlides(n) {
-			showSlides(slideIndex += n);
-		}
-
-		function currentSlide(n) {
-			showSlides(slideIndex = n);
-		}
-
-		function showSlides(n) {
-			let i;
-			let slides = document.getElementsByClassName("slidesImg");
-			let dots = document.getElementsByClassName("selectionDot");
-
-			if (n > slides.length) {
-				slideIndex = 1
-			}
-
-			if (n < 1) {
-				slideIndex = slides.length
-			}
-
-			for (i = 0; i < slides.length; i++) {
-				slides[i].style.display = "none";
-			}
-
-			for (i = 0; i < dots.length; i++) {
-				dots[i].className = dots[i].className.replace(" active", "");
-			}
-
-			slides[slideIndex - 1].style.display = "block";
-			dots[slideIndex - 1].className += " active";
-		}
-	</script>
 
 </body>
 <?php

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include("session.php");
+//include("session.php");
+include("headerTenant.php");
 ?>
 <head>
 
@@ -17,51 +18,6 @@ include("session.php");
 			background-size: cover;
 		}
 
-		.header
-		{
-			font-family: andale mono, monospace;
-			font-size: 170%;
-			background: rgba(235, 235, 235, 0.5);
-			text-align: center;
-			transition: 0.5s;
-			border-radius: 5px;
-			text-decoration: none;
-			color: black;
-			display: flex;
-		}
-
-		.header .title
-		{
-			padding: 2%;
-			flex: 80%;
-		}
-
-		.header .title h1
-		{
-			margin-top: 0px;
-			margin-bottom: 0px;
-			padding-left: 20%;
-		}
-
-		.header .logout
-		{
-			flex: 15%;
-			font-size: 150%;
-	  		cursor: pointer;
-  			color: black;
-			padding: 30px 0px 30px 15px;
-			border-radius: 8px;
-		}
-
-		.header .logout a
-		{
-			color: red;
-		}
-
-		.header .logout a:hover{
-			color: rgba(255, 0, 0, 0.5);
-			transition: 0.3s;
-		}
 
 		.user, .courses{
             background-color: rgba(235, 235, 235, 0.5);
@@ -139,11 +95,6 @@ include("session.php");
 </head>
 
 <body>
-
-	<div class="header">
-		<div class="title"><h1>Serenity Haven</h1></div>
-		<div class="logout"><a href="logout.php">Log Out</a></div>
-	</div>
 
 	<br>
 
