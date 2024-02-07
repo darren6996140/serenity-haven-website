@@ -34,7 +34,6 @@
 		{
 			display: flex;
 			font-family: andale mono, monospace;
-			font-size: 170%;
 			background: rgba(235, 235, 235, 0.5);
 			text-align: center;
 			transition: 0.5s;
@@ -43,7 +42,7 @@
 
 		.header .left
 		{
-			flex: 76%;
+			flex: 90%;
 			color: black;
 			border-radius: 8px;
 		}
@@ -52,13 +51,13 @@
 		{
 			color: black;
 			text-decoration: none;
-			font-size: 130%;
+			font-size: 180%;
 		}
 
 		.header .right
 		{
-			flex: 12%;
-			font-size: 130%;
+			flex: 10%;
+			font-size: 150%;
 	  		cursor: pointer;
   			color: black;
 			padding: 30px 25px 30px 15px;
@@ -75,10 +74,8 @@
 		}
 
 		@media screen and (max-width: 850px) {
-  			.sidebar {padding-top: 25px;}
-  			.sidebar a {font-size: 18px;}
-			.sidebar .close{font-size: 25px;}
-			.header {font-size: 130%;}
+			.header .left a {font-size: 80%;}
+			.header .right {font-size: 60%;}
 		}
 
 		.left a:hover{

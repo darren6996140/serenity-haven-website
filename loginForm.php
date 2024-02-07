@@ -143,7 +143,7 @@
                     <tr>
                         <td></td>
                         <td></td>
-                        <td><input type="submit" name="login" value="Log In" class="button"></td>
+                        <td><input type="submit" name="login" value="Register" class="button"></td>
                         <td></td>
                     </tr>
 
