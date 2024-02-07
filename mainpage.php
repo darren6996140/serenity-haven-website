@@ -3,7 +3,7 @@
 <head>
 
 	<style>
-		.slidesImg img , .coursesImg img {
+		.slidesImg img{
 			display: block;
 			width: 70%;
 			margin-left: auto;
@@ -14,7 +14,7 @@
 			border-radius: 5px;
 		}
 
-		.slidesContainer, .coursesContainer {
+		.slidesContainer{
 			position: relative;
 			margin: auto;
 			transition: 0.5s ease;
@@ -88,39 +88,17 @@
 			transition: 0.5s ease;
 		}
 
-		.coursesOverlay {
-			position: absolute;
-			height: 110%;
-			width: 33.33%;
-			opacity: 0;
-			transition: 0.5s ease;
-			background-color: rgba(255, 255, 255, 0.6);
-			border-radius: 5px;
-		}
-
-		.coursesImg{
-			width: 33.33%;		
-		}
-
-		.coursesOverlay .coursesText {
-			color: black;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			-webkit-transform: translate(-50%, -50%);
-			-ms-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
-			text-align: left;
-			transition: 0.5s ease;
-		}
-
 		.slidesContainer .slidesImg .slidesOverlay .slidesText{
 			font-size: 200%;
 		}
 
-		.coursesContainer .coursesImg .coursesOverlay .coursesText{
-			font-size: 220%;
-		}
+		.paragraph{
+            padding: 2%;
+            font-size: 200%;
+            background-color: var(--background);
+            border-radius: 5px;
+            color: var(--text);
+        }
 
 		@keyframes fadein {
 			from {
@@ -133,19 +111,9 @@
 		}
 
 		@media screen and (max-width: 850px) {
-			.prev, .next, .slidesContainer .slidesImg .slidesOverlay .slidesText{
+			.prev, .next, .slidesContainer .slidesImg .slidesOverlay .slidesText, .paragraph{
 				font-size: 100%;
 			}
-		}
-
-		@media screen and (max-width: 850px) {
-			.coursesContainer .coursesImg .coursesOverlay .coursesText{
-				font-size: 150%;
-			}
-		}
-
-		.coursesContainer{
-			display: flex;
 		}
 
 	</style>
@@ -161,13 +129,6 @@
 			<div class="slidesOverlay">
     			<div class="slidesText">
 					<center><b>Welcome, to Serenity Haven.</b></center>
-					<br><br>
-					Immerse yourself in the lush greenery and well-maintained landscapes that surround our homes, creating a peaceful retreat from the hustle and bustle of city life.
-					<br><br>
-					 Residents can enjoy a range of amenities, including Gym, Car Park, Community Hall and etc, fostering a sense of community and promoting an active lifestyle.
-					<br><br>
-					Convenience is at the heart of Serenity Haven, with easy access to schools, shopping centers, healthcare facilities, etc. Whether you're a growing family, a young professional, or someone seeking a peaceful retirement, Serenity Haven caters to diverse lifestyles. Join us now.
-
 				</div>
   			</div>
 			</a><br>
@@ -222,44 +183,24 @@
 			<span class="selectionDot" onclick="currentSlide(1)"></span>
 			<span class="selectionDot" onclick="currentSlide(2)"></span>
 			<span class="selectionDot" onclick="currentSlide(3)"></span>
+			<span class="selectionDot" onclick="currentSlide(4)"></span>
 		</div>
 
 	</div>
 
-	<br>
+		<br><br>
 
-	<div class="coursesContainer">
-
-		<div class="coursesImg">
-			<div class="coursesOverlay">
-    			<div class="coursesText">
-					<b>Cake Decorations</b>
-				</div>
-  			</div><br>
-			<img src="images/cakeDecorations.jpg">
-		</div>
-
-		<div class="coursesImg">
-			<div class="coursesOverlay">
-    			<div class="coursesText">
-					<b>Cookies Baking</b>
-				</div>
-  			</div><br>
-			<img src="images/cookiesBaking.jpg">
-		</div>
-
-		<div class="coursesImg">
-			<div class="coursesOverlay">
-    			<div class="coursesText">
-					<b>Pastry Baking</b>
-				</div>
-  			</div><br>
-			<img src="images/pastryBaking.jpg">
-		</div>
-
+	<div class="paragraph">
+		<p>
+			Immerse yourself in the lush greenery and well-maintained landscapes that surround our homes, creating a peaceful retreat from the hustle and bustle of city life.
+		</p>
+		<p>
+			Residents can enjoy a range of amenities, including Gym, Car Park, Community Hall and etc, fostering a sense of community and promoting an active lifestyle.
+		</p>
+		<p>
+			Convenience is at the heart of Serenity Haven, with easy access to schools, shopping centers, healthcare facilities, etc. Whether you're a growing family, a young professional, or someone seeking a peaceful retirement, Serenity Haven caters to diverse lifestyles. Join us now.
+		</p>
 	</div>
-
-	<br>
 
 	<script>
 		let slideIndex = 1;
