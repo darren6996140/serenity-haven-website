@@ -175,7 +175,7 @@
 
             <form action="loginProcess.php" method="POST">
                 <div class="title">
-                    <p>Resident Log In</p>
+                    <p>Log In</p>
                 </div>
                 <table cellpadding=5px>
                     <tr>
