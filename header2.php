@@ -93,7 +93,7 @@
 <div class="header">
 
     <div class="left">
-		<h1><a href="mainpageUser.php">Serenity Haven</a></h1>
+		<h1><a href="">Serenity Haven</a></h1>
   	</div>
 
 	<div class="right">

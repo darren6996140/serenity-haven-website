@@ -9,14 +9,14 @@
 			margin: 0;
 		}
 
-        .userForm {
+        .user {
             background-color: rgba(235, 235, 235, 0.5);
             padding-bottom: 20px;
             border-radius: 5px;
             margin-top: 2%;
         }
 
-        .userForm .title p{
+        .user .title p{
             font-size: 300%;
             font-weight: bold;
             text-align: center;
@@ -25,7 +25,7 @@
             padding: 10px 0px;
         }
 
-        .userForm table {
+        .user table {
             border: none;
             border-radius: 5px;
             border-collapse: collapse;
@@ -33,15 +33,15 @@
             background-color: rgb(235, 235, 235);
         }
 
-        .userForm table, .userForm td {
+        .user table, .user td {
             text-align: right;
         }
 
-        .userForm #left {
+        .user .left {
             text-align: left;
         }
 
-        .userForm .form {
+        .user .form {
             padding: 10px;
             width: 200px;
             font-size: 100%;
@@ -49,7 +49,7 @@
             border-radius: 5px;
         }
 
-        .userForm .button {
+        .user .button {
             background-color: white;
             font-size: 150%;
             font-weight: bold;
@@ -57,11 +57,11 @@
             border-radius: 5px;
         }
 
-        .userForm .button:hover {
+        .user .button:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
 
-        .userForm a {
+        .user a {
             font-size: 20px;
             font-weight: bold;
             text-decoration: underline;
@@ -78,7 +78,7 @@
     include("header.php");
     ?>
 
-    <div class="userForm">
+    <div class="user">
         <form action="userProcess.php" method="POST">
             <div class="title">
                 <p>New User Registration</p>
@@ -131,7 +131,7 @@
                 <tr>
                     <td></td>
                     <td>Status: </td>
-                    <td id="left">
+                    <td class="left">
                         <input type="radio" name="status" value="agent" id="agent"><label for="agent">Agent</label>
                         <input type="radio" name="status" value="owner" id="owner"><label for="owner">Owner</label>
                         <input type="radio" name="status" value="tenant" id="tenant"><label for="tenant">Tenant</label>
