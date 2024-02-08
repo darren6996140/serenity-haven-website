@@ -2,7 +2,7 @@
 <html lang="en" class="theme">
 <head>
 	
-	<title>The Cake Whisperer</title>
+	<title>Serenity Haven</title>
 	<!--title logo-->
 	<link rel = "icon" href = "https://cdn.onlinewebfonts.com/svg/img_425531.png" type = "image/x-icon">
 	<meta charset="UTF-8">
@@ -162,17 +162,17 @@
 
 <div id="sidebar" class="sidebar">
 	<button class="close" onclick="closeNav()" >×</button>
-	<h1>Courses</h1>
-		<a href="bakingBasics.php" >Baking Basics</a>
-		<a href="breadBaking.php" >Bread Baking</a>
+	<h1>Action</h1>
+		<a href="visitorManagement.php" >Visitor Management</a>
+		<!-- <a href="breadBaking.php" >Bread Baking</a>
 		<a href="cakeDecorations.php" >Cake Decorations</a>
 		<a href="cookiesBaking.php" >Cookies Baking</a>
-		<a href="pastryBaking.php" >Pastry Baking</a>
-	<h1>Our Company</h1>
+		<a href="pastryBaking.php" >Pastry Baking</a> -->
+	<!-- <h1>Our Company</h1>
 		<a href="aboutus.php">About Us</a>
 		<a href="workworkwork.php">Work</a>
-		<a href="privacy.php">Privacy Notice</a>
-</div>
+		<a href="privacy.php">Privacy Notice</a> -->
+</div> 
 
 <div class="header">
 
