@@ -136,7 +136,7 @@
                     <tr>
                         <td></td>
                         <td>Car Plate :</td>
-                        <td><input type="text" name="carPlat" placeholder="WYS6691" class="form" required></td>
+                        <td><input type="text" name="carPlate" placeholder="WYS6691" class="form" required></td>
                         <td></td>
                     </tr>
 
