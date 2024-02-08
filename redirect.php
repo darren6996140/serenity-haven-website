@@ -7,12 +7,12 @@ if ($status == "admin"){
 }
 
 elseif ($status == "agent"){
-    header('Location: mainpageAgent.php');
+    header('Location: mainpageUser.php');
     exit();
 }
 
 elseif ($status == "owner"){
-    header('Location: mainpageOwner.php');
+    header('Location: mainpageUser.php');
     exit();
 }
 
@@ -22,7 +22,7 @@ elseif ($status == "security"){
 }
 
 elseif ($status == "tenant"){
-    header('Location: mainpageTenant.php');
+    header('Location: mainpageUser.php');
     exit();
 }
 
