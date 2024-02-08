@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2024 at 03:51 PM
+-- Generation Time: Feb 08, 2024 at 04:48 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `serenity_haven`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `facilities`
+--
+
+CREATE TABLE `facilities` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `selection` varchar(10) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `facilities`
+--
+
+INSERT INTO `facilities` (`id`, `email`, `selection`, `date`) VALUES
+(1, '', 'basketball', '2024-02-14'),
+(2, '', 'pool', '2024-02-14'),
+(3, 'liau', 'basketball', '2024-02-01');
 
 -- --------------------------------------------------------
 
@@ -110,6 +132,12 @@ INSERT INTO `visitor` (`id`, `email`, `name`, `noPhone`, `carPlate`, `noUnit`) V
 --
 
 --
+-- Indexes for table `facilities`
+--
+ALTER TABLE `facilities`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `report`
 --
 ALTER TABLE `report`
@@ -138,6 +166,12 @@ ALTER TABLE `visitor`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `facilities`
+--
+ALTER TABLE `facilities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `report`
