@@ -17,14 +17,14 @@ include("header2.php");
 			background-size: cover;
 		}
 
-        .infoForm, .report {
+        .info, .report, .facilities{
             background-color: rgba(235, 235, 235, 0.5);
             padding-bottom: 20px;
             border-radius: 5px;
             margin-top: 2%;
         }
 
-        .infoForm .title p, .report .title p{
+        .info .title p, .report .title p, .facilities .title p{
             font-size: 300%;
             font-weight: bold;
             text-align: center;
@@ -33,7 +33,7 @@ include("header2.php");
             padding: 10px 0px;
         }
 
-        .infoForm table, .report table{
+        .info table, .report table, .facilities table{
             border: none;
             border-radius: 5px;
             border-collapse: collapse;
@@ -41,15 +41,15 @@ include("header2.php");
             background-color: rgb(235, 235, 235);
         }
 
-        .infoForm table, .infoForm td, .report table, .report td {
+        .info table, .info td, .report table, .report td, .facilities table, .facilities td{
             text-align: right;
         }
 
-        .infoForm #left {
+        .facilities .left {
             text-align: left;
         }
 
-        .infoForm .form, .report .form {
+        .info .form, .report .form, .facilities .form{
             padding: 10px;
             width: 200px;
             font-size: 100%;
@@ -57,7 +57,7 @@ include("header2.php");
             border-radius: 5px;
         }
 
-        .infoForm .button, .report .button {
+        .info .button, .report .button, .facilities .button{
             background-color: white;
             font-size: 150%;
             font-weight: bold;
@@ -65,11 +65,11 @@ include("header2.php");
             border-radius: 5px;
         }
 
-        .infoForm .button:hover, .report .button:hover {
+        .info .button:hover, .report .button:hover, .facilities .button:hover{
             background-color: rgba(255, 255, 255, 0.5);
         }
 
-        .infoForm a, .report a{
+        .info a, .report a, .facilities a{
             font-size: 20px;
             font-weight: bold;
             text-decoration: underline;
@@ -77,7 +77,11 @@ include("header2.php");
         }
 
         .report textarea{
+            font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+            font-size: 120%;
+        }
 
+        .facilities .date{
             font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
             font-size: 120%;
         }
@@ -88,7 +92,7 @@ include("header2.php");
 
 <body>
 
-    <div class="infoForm">
+    <div class="info">
         <form action="infoProcess.php" method="POST">
             <div class="title">
                 <p>Update Personal Information</p>
@@ -160,7 +164,7 @@ include("header2.php");
     </div>
 
     <div class="report">
-    <form action="reportProcess.php" method="POST">
+        <form action="reportProcess.php" method="POST">
             <div class="title">
                 <p>Incident Report</p>
             </div>
@@ -192,7 +196,7 @@ include("header2.php");
                     <td></td>
                     <td>Details :</td>
                     <td>
-                        <textarea name="details" id="details" cols="30" rows="5" required></textarea>
+                        <textarea name="details" id="details" placeholder="Enter details here" cols="30" rows="5" required></textarea>
                     </td>
                     <td></td>
                 </tr>
@@ -219,7 +223,73 @@ include("header2.php");
                 </tr>
 
             </table>
+        </form>
+    </div>
 
+    <div class="facilities">
+        <form action="facilitiesProcess.php" method="POST">
+            <div class="title">
+                <p>Facilities Booking</p>
+            </div>
+            
+            <table cellpadding=5px>
+
+                <tr>
+                    <td style="width: 20px"></td>
+                    <td></td>
+                    <td></td>
+                    <td style="width: 20px"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>Date :</td>
+                    <td><input class="date" type="date" name="date" class="form" required></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>Selection: </td>
+                    <td id="left">
+                        <input type="radio" name="selection" value="gym" id="gym"><label for="gym">Gym</label>
+                        <input type="radio" name="selection" value="pool" id="pool"><label for="pool">Pool</label>
+                        <input type="radio" name="selection" value="badminton" id="badminton"><label for="badminton">Badminton Court</label>
+                        <input type="radio" name="selection" value="basketball" id="basketball"><label for="basketball">Basketball Court</label>
+                        <input type="radio" name="selection" value="tennis" id="tennis"><label for="tennis">Tennis Court</label>
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit" class="button"></td>
+                    <td></td>
+				</tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
         </form>
     </div>
 

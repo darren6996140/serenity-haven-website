@@ -18,7 +18,7 @@ include("header2.php");
 		}
 
 
-		.user, .report{
+		.user, .report, .facilities{
             background-color: rgba(235, 235, 235, 0.5);
             padding-bottom: 20px;
             border-radius: 5px;
@@ -26,7 +26,7 @@ include("header2.php");
 			margin-top: 2%;
         }
 
-		.user h1, .report h1{
+		.user h1, .report h1, .facilities h1{
             font-size: 300%;
             font-weight: bold;
             margin-top: 0px;
@@ -34,7 +34,7 @@ include("header2.php");
             padding: 10px 0px;
         }
 
-		.user .table, .report .table{
+		.user .table, .report .table, .facilities .table{
             padding: 10px;
             border: 1px solid black;
 			text-align: center;
@@ -43,14 +43,14 @@ include("header2.php");
 			border-radius: 5px;
         }
 
-		.user .table td, .report .table td{
+		.user .table td, .report .table td, .facilities .table td{
 			text-align: center;
 			height: 25px;
 			font-size: 100%;
 			padding: 10px 20px;
 		}
 
-		.user .table th, .report .table th{
+		.user .table th, .report .table th, .facilities .table th{
 			font-size: 150%;
 			text-align: center;
 			font-weight: bold;
@@ -70,38 +70,38 @@ include("header2.php");
 
 		<?php
 
-		$query = "SELECT * FROM user";
-		$result = mysqli_query($conn, $query) or die(mysql_error());
+			$query = "SELECT * FROM user";
+			$result = mysqli_query($conn, $query) or die(mysql_error());
 
-		if (mysqli_num_rows ($result) > 0)
-		{
-			echo "<table class='table'>";
-			echo "<col>";
-			echo "<col>";
-			echo "<col>";
-			echo "<tr>";
-			echo "<th>Email</th>";
-			echo "<th>Name</th>";
-			echo "<th>Phone Number</th>";
-			echo "<th>Status</th>";
-			echo "<th>Unit Number</th>";
-
-			while ($row = mysqli_fetch_assoc($result))
+			if (mysqli_num_rows ($result) > 0)
 			{
+				echo "<table class='table'>";
+				echo "<col>";
+				echo "<col>";
+				echo "<col>";
 				echo "<tr>";
-				echo "<td>".$row['email']."</td>";
-				echo "<td>".$row['name']."</td>";
-				echo "<td>".$row['noPhone']."</td>";
-				echo "<td>".$row['status']."</td>";
-				echo "<td>".$row['noUnit']."</td>";
-				echo "</tr>";
-			}
-			echo"</table>";
-		}
+				echo "<th>Email</th>";
+				echo "<th>Name</th>";
+				echo "<th>Phone Number</th>";
+				echo "<th>Status</th>";
+				echo "<th>Unit Number</th>";
 
-		else{
-			echo"<h1><u>No data</u></h1>";
-		}
+				while ($row = mysqli_fetch_assoc($result))
+				{
+					echo "<tr>";
+					echo "<td>".$row['email']."</td>";
+					echo "<td>".$row['name']."</td>";
+					echo "<td>".$row['noPhone']."</td>";
+					echo "<td>".$row['status']."</td>";
+					echo "<td>".$row['noUnit']."</td>";
+					echo "</tr>";
+				}
+				echo"</table>";
+			}
+
+			else{
+				echo"<h1><u>No data</u></h1>";
+			}
 
 		?>
 	</div>
@@ -112,36 +112,76 @@ include("header2.php");
 
 		<?php
 
-		$query = "SELECT * FROM report";
-		$result = mysqli_query($conn, $query) or die(mysql_error());
+			$query = "SELECT * FROM report";
+			$result = mysqli_query($conn, $query) or die(mysql_error());
 
-		if (mysqli_num_rows ($result) > 0)
-		{
-			echo "<table class='table'>";
-			echo "<col>";
-			echo "<col>";
-			echo "<col>";
-			echo "<tr>";
-			echo "<th>ID</th>";
-			echo "<th>Email</th>";
-			echo "<th>Subject</th>";
-			echo "<th>Details</th>";
-
-			while ($row = mysqli_fetch_assoc($result))
+			if (mysqli_num_rows ($result) > 0)
 			{
+				echo "<table class='table'>";
+				echo "<col>";
+				echo "<col>";
+				echo "<col>";
 				echo "<tr>";
-				echo "<td>".$row['id']."</td>";
-				echo "<td>".$row['email']."</td>";
-				echo "<td>".$row['subject']."</td>";
-				echo "<td>".$row['details']."</td>";
-				echo "</tr>";
-			}
-			echo"</table>";
-		}
+				echo "<th>ID</th>";
+				echo "<th>Email</th>";
+				echo "<th>Subject</th>";
+				echo "<th>Details</th>";
 
-		else{
-			echo"<h1><u>No data</u></h1>";
-		}
+				while ($row = mysqli_fetch_assoc($result))
+				{
+					echo "<tr>";
+					echo "<td>".$row['id']."</td>";
+					echo "<td>".$row['email']."</td>";
+					echo "<td>".$row['subject']."</td>";
+					echo "<td>".$row['details']."</td>";
+					echo "</tr>";
+				}
+				echo"</table>";
+			}
+
+			else{
+				echo"<h1><u>No data</u></h1>";
+			}
+
+		?>
+	</div>
+
+	<div class="facilities">
+
+		<h1>Facility Booking</h1>
+
+		<?php
+
+			$query = "SELECT * FROM facilities";
+			$result = mysqli_query($conn, $query) or die(mysql_error());
+
+			if (mysqli_num_rows ($result) > 0)
+			{
+				echo "<table class='table'>";
+				echo "<col>";
+				echo "<col>";
+				echo "<col>";
+				echo "<tr>";
+				echo "<th>ID</th>";
+				echo "<th>Email</th>";
+				echo "<th>Selection</th>";
+				echo "<th>Date</th>";
+
+				while ($row = mysqli_fetch_assoc($result))
+				{
+					echo "<tr>";
+					echo "<td>".$row['id']."</td>";
+					echo "<td>".$row['email']."</td>";
+					echo "<td>".$row['selection']."</td>";
+					echo "<td>".$row['date']."</td>";
+					echo "</tr>";
+				}
+				echo"</table>";
+			}
+
+			else{
+				echo"<h1><u>No data</u></h1>";
+			}
 
 		?>
 	</div>
