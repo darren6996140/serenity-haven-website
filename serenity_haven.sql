@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2024 at 09:47 AM
+-- Generation Time: Feb 08, 2024 at 10:46 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -60,6 +60,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`email`, `name`, `password`, `noPhone`, `status`, `noUnit`) VALUES
 ('admin', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin', 'admin', NULL),
+('liau', 'darren', '7e071fd9b023ed8f18458a73613a0834f6220bd5cc50357ba3493c6040a9ea8c', 'darren', 'owner', NULL),
 ('secu1', 'babi', '4be1edd7388aafd5a4bdd03041a8347ea184e17987e87aaa792f6d7b71ba01a7', 'secu1', 'security', NULL);
 
 -- --------------------------------------------------------
