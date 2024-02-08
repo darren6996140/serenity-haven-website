@@ -18,14 +18,14 @@ include("header2.php");
 			background-size: cover;
 		}
 
-        .infoForm {
+        .infoForm, .report {
             background-color: rgba(235, 235, 235, 0.5);
             padding-bottom: 20px;
             border-radius: 5px;
             margin-top: 2%;
         }
 
-        .infoForm .title p{
+        .infoForm .title p, .report .title p{
             font-size: 300%;
             font-weight: bold;
             text-align: center;
@@ -34,7 +34,7 @@ include("header2.php");
             padding: 10px 0px;
         }
 
-        .infoForm table {
+        .infoForm table, .report table{
             border: none;
             border-radius: 5px;
             border-collapse: collapse;
@@ -42,7 +42,7 @@ include("header2.php");
             background-color: rgb(235, 235, 235);
         }
 
-        .infoForm table, .infoForm td {
+        .infoForm table, .infoForm td, .report table, .report td {
             text-align: right;
         }
 
@@ -50,7 +50,7 @@ include("header2.php");
             text-align: left;
         }
 
-        .infoForm .form {
+        .infoForm .form, .report .form {
             padding: 10px;
             width: 200px;
             font-size: 100%;
@@ -58,7 +58,7 @@ include("header2.php");
             border-radius: 5px;
         }
 
-        .infoForm .button {
+        .infoForm .button, .report .button {
             background-color: white;
             font-size: 150%;
             font-weight: bold;
@@ -66,15 +66,21 @@ include("header2.php");
             border-radius: 5px;
         }
 
-        .infoForm .button:hover {
+        .infoForm .button:hover, .report .button:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
 
-        .infoForm a {
+        .infoForm a, .report a{
             font-size: 20px;
             font-weight: bold;
             text-decoration: underline;
             color: rgb(26, 140, 255);
+        }
+
+        .report textarea{
+
+            font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+            font-size: 120%;
         }
 
 	</style>
@@ -83,7 +89,7 @@ include("header2.php");
 
 <body>
 
-<div class="infoForm">
+    <div class="infoForm">
         <form action="infoProcess.php" method="POST">
             <div class="title">
                 <p>Update Personal Information</p>
@@ -152,6 +158,70 @@ include("header2.php");
 
         </form>
 
+    </div>
+
+    <div class="report">
+    <form action="reportProcess.php" method="POST">
+            <div class="title">
+                <p>Incident Report</p>
+            </div>
+            
+            <table cellpadding=5px>
+
+                <tr>
+                    <td style="width: 20px"></td>
+                    <td></td>
+                    <td></td>
+                    <td style="width: 20px"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+				<tr>
+					<td></td>
+					<td>Subject :</td>
+					<td><input type="text" name="subject" placeholder="Enter subject here" class="form" required></td>
+					<td></td>
+				</tr>
+
+                <tr>
+                    <td></td>
+                    <td>Details :</td>
+                    <td>
+                        <textarea name="details" id="details" cols="30" rows="5" required></textarea>
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit" class="button"></td>
+                    <td></td>
+				</tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+
+        </form>
     </div>
 
 </body>
