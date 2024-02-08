@@ -24,7 +24,7 @@
 			padding: 10px;
 			font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
 			margin: 0;
-			background-image: url('images/baking<?php echo(rand(0,4)); ?>.jpg');
+			background-image: url('images/Serenity<?php echo(rand(0,5)); ?>.jpg');
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: cover;
