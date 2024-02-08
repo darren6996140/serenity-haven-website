@@ -2,7 +2,7 @@
 <html lang="en" class="theme">
 <head>
 	
-	<title>The Cake Whisperer</title>
+	<title>Serenity Haven</title>
 	<!--title logo-->
 	<link rel = "icon" href = "https://cdn.onlinewebfonts.com/svg/img_425531.png" type = "image/x-icon">
 	<meta charset="UTF-8">
@@ -19,12 +19,22 @@
 			--table: rgba(235, 235, 235);
 		}
 
+		body
+		{
+			padding: 10px;
+			font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+			margin: 0;
+			background-image: url('images/baking<?php echo(rand(0,4)); ?>.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+
 		.header
 		{
 			display: flex;
 			font-family: andale mono, monospace;
-			font-size: 170%;
-			background: var(--background);
+			background: rgba(235, 235, 235, 0.5);
 			text-align: center;
 			transition: 0.5s;
 			border-radius: 8px;
@@ -33,22 +43,23 @@
 		.header .left
 		{
 			flex: 90%;
-			color: var(--text);
+			color: black;
 			border-radius: 8px;
 		}
 
 		.header .left a
 		{
-			color: var(--text);
+			color: black;
 			text-decoration: none;
+			font-size: 180%;
 		}
 
 		.header .right
 		{
 			flex: 10%;
-			font-size: 130%;
+			font-size: 200%;
 	  		cursor: pointer;
-  			color: var(--text);
+  			color: black;
 			padding: 30px 25px 30px 15px;
 			border-radius: 8px;
 		}
@@ -59,11 +70,17 @@
 		}
 
 		@media screen and (max-width: 850px) {
-			.header {font-size: 130%;}
+			.header .left a {font-size: 80%;}
+			.header .right {font-size: 60%;}
 		}
 
 		.left a:hover{
-			color: rgba(0, 0, 0, 0.500);
+			color: rgba(0, 0, 0, 0.5);
+			transition: 0.2s;
+		}
+
+		.right a:hover{
+			color: rgba(0, 0, 0, 0.5);
 			transition: 0.2s;
 		}
 

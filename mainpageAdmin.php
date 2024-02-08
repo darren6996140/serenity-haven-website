@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-//include("session.php");
-include("headerAdmin.php");
+include("session.php");
+include("header2.php");
 ?>
 <head>
 
