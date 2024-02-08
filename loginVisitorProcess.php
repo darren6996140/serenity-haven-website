@@ -20,8 +20,8 @@ if (mysqli_num_rows($result)> 0)
 }
 
 else{
-	$mysql= "INSERT INTO user
-	(email, password, name, noPhone, status)
+	$mysql= "INSERT INTO visitor
+	(email, name, noUnit, noPhone, carPlate)
 	VALUES ('$email', '$name', '$noUnit' , '$noPhone' , '$carPlate')";
 
 	if (mysqli_query($conn, $mysql)){
