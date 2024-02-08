@@ -12,14 +12,13 @@ include("header2.php");
 			padding: 10px;
 			font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
 			margin: 0;
-			background-image: url('images/baking<?php echo(rand(0,4)); ?>.jpg');
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: cover;
 		}
 
 
-		.user{
+		.user, .report{
             background-color: rgba(235, 235, 235, 0.5);
             padding-bottom: 20px;
             border-radius: 5px;
@@ -27,7 +26,7 @@ include("header2.php");
 			margin-top: 2%;
         }
 
-		.user h1{
+		.user h1, .report h1{
             font-size: 300%;
             font-weight: bold;
             margin-top: 0px;
@@ -35,33 +34,7 @@ include("header2.php");
             padding: 10px 0px;
         }
 
-		.user .order{
-            font-size: 150%;
-            border-radius: 5px;
-            border: solid;
-            border-width: 2px;
-			margin-right: 1%;
-			transition: 0.3s;
-        }
-
-		.user .order:hover{
-			background-color: rgba(233, 233, 237,0.5);
-        }
-
-		.user .button{
-            background-color: white;
-            font-size: 150%;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            transition: 0.2s;
-        }
-
-		.user .button:hover{
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-		.user .table{
+		.user .table, .report .table{
             padding: 10px;
             border: 1px solid black;
 			text-align: center;
@@ -70,14 +43,14 @@ include("header2.php");
 			border-radius: 5px;
         }
 
-		.user .table td{ 
+		.user .table td, .report .table td{
 			text-align: center;
 			height: 25px;
 			font-size: 100%;
 			padding: 10px 20px;
 		}
 
-		.user .table th{
+		.user .table th, .report .table th{
 			font-size: 150%;
 			text-align: center;
 			font-weight: bold;
@@ -121,6 +94,46 @@ include("header2.php");
 				echo "<td>".$row['noPhone']."</td>";
 				echo "<td>".$row['status']."</td>";
 				echo "<td>".$row['noUnit']."</td>";
+				echo "</tr>";
+			}
+			echo"</table>";
+		}
+
+		else{
+			echo"<h1><u>No data</u></h1>";
+		}
+
+		?>
+	</div>
+
+	<div class="report">
+
+		<h1>Report Database</h1>
+
+		<?php
+
+		$query = "SELECT * FROM report";
+		$result = mysqli_query($conn, $query) or die(mysql_error());
+
+		if (mysqli_num_rows ($result) > 0)
+		{
+			echo "<table class='table'>";
+			echo "<col>";
+			echo "<col>";
+			echo "<col>";
+			echo "<tr>";
+			echo "<th>ID</th>";
+			echo "<th>Email</th>";
+			echo "<th>Subject</th>";
+			echo "<th>Details</th>";
+
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				echo "<tr>";
+				echo "<td>".$row['id']."</td>";
+				echo "<td>".$row['email']."</td>";
+				echo "<td>".$row['subject']."</td>";
+				echo "<td>".$row['details']."</td>";
 				echo "</tr>";
 			}
 			echo"</table>";
