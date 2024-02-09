@@ -17,14 +17,14 @@ include("header2.php");
 			background-size: cover;
 		}
 
-        .info, .report, .facilities{
+        .info, .report, .facilities, .announcements{
             background-color: rgba(235, 235, 235, 0.5);
             padding-bottom: 20px;
             border-radius: 5px;
             margin-top: 2%;
         }
 
-        .info .title p, .report .title p, .facilities .title p{
+        .info .title p, .report .title p, .facilities .title p, .announcements .title p{
             font-size: 300%;
             font-weight: bold;
             text-align: center;
@@ -33,7 +33,7 @@ include("header2.php");
             padding: 10px 0px;
         }
 
-        .info table, .report table, .facilities table{
+        .info table, .report table, .facilities table, .announcements table{
             border: none;
             border-radius: 5px;
             border-collapse: collapse;
@@ -41,7 +41,7 @@ include("header2.php");
             background-color: rgb(235, 235, 235);
         }
 
-        .info table, .info td, .report table, .report td, .facilities table, .facilities td{
+        .info table, .info td, .report table, .report td, .facilities table, .facilities td, .announcements table, .announcements td{
             text-align: right;
         }
 
@@ -49,7 +49,7 @@ include("header2.php");
             text-align: left;
         }
 
-        .info .form, .report .form, .facilities .form{
+        .info .form, .report .form, .facilities .form, .announcements .form{
             padding: 10px;
             width: 200px;
             font-size: 100%;
@@ -57,7 +57,7 @@ include("header2.php");
             border-radius: 5px;
         }
 
-        .info .button, .report .button, .facilities .button{
+        .info .button, .report .button, .facilities .button, .announcements .button{
             background-color: white;
             font-size: 150%;
             font-weight: bold;
@@ -65,18 +65,11 @@ include("header2.php");
             border-radius: 5px;
         }
 
-        .info .button:hover, .report .button:hover, .facilities .button:hover{
+        .info .button:hover, .report .button:hover, .facilities .button:hover, .announcements .button:hover{
             background-color: rgba(255, 255, 255, 0.5);
         }
 
-        .info a, .report a, .facilities a{
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: underline;
-            color: rgb(26, 140, 255);
-        }
-
-        .report textarea{
+        .report textarea, .announcements textarea{
             font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
             font-size: 120%;
         }
@@ -85,6 +78,30 @@ include("header2.php");
             font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
             font-size: 120%;
         }
+
+        .announcements .result{
+            padding: 10px;
+            border: 1px solid black;
+			text-align: center;
+			background-color: rgb(235, 235, 235);
+			margin: auto;
+			border-radius: 5px;
+        }
+
+		.announcements .result td{
+			text-align: center;
+			height: 25px;
+			font-size: 100%;
+			padding: 10px 20px;
+		}
+
+		.announcements .result th{
+			font-size: 150%;
+			text-align: center;
+			font-weight: bold;
+			text-decoration: underline;
+			padding: 20px 10px;
+		}
 
 	</style>
 	
@@ -291,6 +308,145 @@ include("header2.php");
 
             </table>
         </form>
+    </div>
+
+    <div class="announcements">
+        <form action="announcementProcess.php" method="POST">
+            <div class="title">
+                <p>Announcements</p>
+            </div>
+            
+            <table cellpadding=5px>
+
+                <tr>
+                    <td style="width: 20px"></td>
+                    <td></td>
+                    <td></td>
+                    <td style="width: 20px"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+				<tr>
+					<td></td>
+					<td>Subject :</td>
+					<td><input type="text" name="subject" placeholder="Enter subject here" class="form" required></td>
+					<td></td>
+				</tr>
+
+                <tr>
+                    <td></td>
+                    <td>Details :</td>
+                    <td>
+                        <textarea name="details" id="details" placeholder="Enter details here" cols="30" rows="5" required></textarea>
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit" class="button"></td>
+                    <td></td>
+				</tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+        </form>
+
+        <div class="title">
+            <p>All Announcements</p>
+        </div>
+        <?php
+
+			$query = "SELECT * FROM announcements";
+			$result = mysqli_query($conn, $query) or die(mysql_error());
+
+			if (mysqli_num_rows ($result) > 0)
+			{
+				echo "<table class='result'>";
+				echo "<col>";
+				echo "<col>";
+				echo "<col>";
+				echo "<tr>";
+				echo "<th>ID</th>";
+				echo "<th>Email</th>";
+				echo "<th>Subject</th>";
+				echo "<th>Details</th>";
+
+				while ($row = mysqli_fetch_assoc($result))
+				{
+					echo "<tr>";
+					echo "<td>".$row['id']."</td>";
+					echo "<td>".$row['email']."</td>";
+					echo "<td>".$row['subject']."</td>";
+					echo "<td>".$row['details']."</td>";
+					echo "</tr>";
+				}
+				echo"</table>";
+			}
+
+			else{
+				echo"<div class='title' style='text-decoration: underline'><p>No Data</p></div>";
+			}
+
+		?>
+
+        <div class="title">
+            <p>Your Announcements</p>
+        </div>
+        <?php
+
+			$query = "SELECT * FROM announcements WHERE email = '$email'";
+			$result = mysqli_query($conn, $query) or die(mysql_error());
+
+			if (mysqli_num_rows ($result) > 0)
+			{
+				echo "<table class='result'>";
+				echo "<col>";
+				echo "<col>";
+				echo "<col>";
+				echo "<tr>";
+				echo "<th>ID</th>";
+				echo "<th>Email</th>";
+				echo "<th>Subject</th>";
+				echo "<th>Details</th>";
+
+				while ($row = mysqli_fetch_assoc($result))
+				{
+					echo "<tr>";
+					echo "<td>".$row['id']."</td>";
+					echo "<td>".$row['email']."</td>";
+					echo "<td>".$row['subject']."</td>";
+					echo "<td>".$row['details']."</td>";
+					echo "</tr>";
+				}
+				echo"</table>";
+			}
+
+			else{
+				echo"<div class='title' style='text-decoration: underline'><p>No Data</p></div>";
+			}
+
+		?>
     </div>
 
 </body>

@@ -18,7 +18,7 @@ include("header2.php");
 		}
 
 
-		.user, .report, .facilities{
+		.user, .report, .facilities, .announcements{
             background-color: rgba(235, 235, 235, 0.5);
             padding-bottom: 20px;
             border-radius: 5px;
@@ -26,7 +26,7 @@ include("header2.php");
 			margin-top: 2%;
         }
 
-		.user h1, .report h1, .facilities h1{
+		.user h1, .report h1, .facilities h1, .announcements h1{
             font-size: 300%;
             font-weight: bold;
             margin-top: 0px;
@@ -34,7 +34,7 @@ include("header2.php");
             padding: 10px 0px;
         }
 
-		.user .table, .report .table, .facilities .table{
+		.user .table, .report .table, .facilities .table, .announcements .table{
             padding: 10px;
             border: 1px solid black;
 			text-align: center;
@@ -43,14 +43,14 @@ include("header2.php");
 			border-radius: 5px;
         }
 
-		.user .table td, .report .table td, .facilities .table td{
+		.user .table td, .report .table td, .facilities .table td, .announcements .table td{
 			text-align: center;
 			height: 25px;
 			font-size: 100%;
 			padding: 10px 20px;
 		}
 
-		.user .table th, .report .table th, .facilities .table th{
+		.user .table th, .report .table th, .facilities .table th, .facilities .table th{
 			font-size: 150%;
 			text-align: center;
 			font-weight: bold;
@@ -174,6 +174,46 @@ include("header2.php");
 					echo "<td>".$row['email']."</td>";
 					echo "<td>".$row['selection']."</td>";
 					echo "<td>".$row['date']."</td>";
+					echo "</tr>";
+				}
+				echo"</table>";
+			}
+
+			else{
+				echo"<h1><u>No data</u></h1>";
+			}
+
+		?>
+	</div>
+
+	<div class="announcements">
+
+		<h1>Announcements</h1>
+
+		<?php
+
+			$query = "SELECT * FROM announcements";
+			$result = mysqli_query($conn, $query) or die(mysql_error());
+
+			if (mysqli_num_rows ($result) > 0)
+			{
+				echo "<table class='table'>";
+				echo "<col>";
+				echo "<col>";
+				echo "<col>";
+				echo "<tr>";
+				echo "<th>ID</th>";
+				echo "<th>Email</th>";
+				echo "<th>Subject</th>";
+				echo "<th>Details</th>";
+
+				while ($row = mysqli_fetch_assoc($result))
+				{
+					echo "<tr>";
+					echo "<td>".$row['id']."</td>";
+					echo "<td>".$row['email']."</td>";
+					echo "<td>".$row['subject']."</td>";
+					echo "<td>".$row['details']."</td>";
 					echo "</tr>";
 				}
 				echo"</table>";
