@@ -387,7 +387,6 @@ include("header2.php");
 				echo "<col>";
 				echo "<col>";
 				echo "<tr>";
-				echo "<th>ID</th>";
 				echo "<th>Email</th>";
 				echo "<th>Subject</th>";
 				echo "<th>Details</th>";
@@ -395,7 +394,6 @@ include("header2.php");
 				while ($row = mysqli_fetch_assoc($result))
 				{
 					echo "<tr>";
-					echo "<td>".$row['id']."</td>";
 					echo "<td>".$row['email']."</td>";
 					echo "<td>".$row['subject']."</td>";
 					echo "<td>".$row['details']."</td>";
@@ -425,18 +423,18 @@ include("header2.php");
 				echo "<col>";
 				echo "<col>";
 				echo "<tr>";
-				echo "<th>ID</th>";
 				echo "<th>Email</th>";
 				echo "<th>Subject</th>";
 				echo "<th>Details</th>";
+                echo "<th>Delete</th>";
 
 				while ($row = mysqli_fetch_assoc($result))
 				{
 					echo "<tr>";
-					echo "<td>".$row['id']."</td>";
 					echo "<td>".$row['email']."</td>";
 					echo "<td>".$row['subject']."</td>";
 					echo "<td>".$row['details']."</td>";
+                    echo "<td><a href='deleteAnnouncement.php?id=".$row['id']."'> <img src='images/delete.png' width='50' height='50'> </a> </td>";
 					echo "</tr>";
 				}
 				echo"</table>";
