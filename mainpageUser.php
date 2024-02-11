@@ -17,14 +17,14 @@ include("header2.php");
 			background-size: cover;
 		}
 
-        .info, .report, .facilities, .announcements{
+        .info, .report, .facilities, .announcements, .unit{
             background-color: rgba(235, 235, 235, 0.5);
             padding-bottom: 20px;
             border-radius: 5px;
             margin-top: 2%;
         }
 
-        .info .title p, .report .title p, .facilities .title p, .announcements .title p{
+        .info .title p, .report .title p, .facilities .title p, .announcements .title p, .unit .title p{
             font-size: 300%;
             font-weight: bold;
             text-align: center;
@@ -33,7 +33,7 @@ include("header2.php");
             padding: 10px 0px;
         }
 
-        .info table, .report table, .facilities table, .announcements table{
+        .info table, .report table, .facilities table, .announcements table, .unit table{
             border: none;
             border-radius: 5px;
             border-collapse: collapse;
@@ -41,15 +41,11 @@ include("header2.php");
             background-color: rgb(235, 235, 235);
         }
 
-        .info table, .info td, .report table, .report td, .facilities table, .facilities td, .announcements table, .announcements td{
+        .info table, .info td, .report table, .report td, .facilities table, .facilities td, .announcements table, .announcements td, .unit table, .unit td{
             text-align: right;
         }
 
-        .facilities .left {
-            text-align: left;
-        }
-
-        .info .form, .report .form, .facilities .form, .announcements .form{
+        .info .form, .report .form, .facilities .form, .announcements .form, .unit .form{
             padding: 10px;
             width: 200px;
             font-size: 100%;
@@ -57,7 +53,7 @@ include("header2.php");
             border-radius: 5px;
         }
 
-        .info .button, .report .button, .facilities .button, .announcements .button{
+        .info .button, .report .button, .facilities .button, .announcements .button, .unit .button{
             background-color: white;
             font-size: 150%;
             font-weight: bold;
@@ -65,7 +61,7 @@ include("header2.php");
             border-radius: 5px;
         }
 
-        .info .button:hover, .report .button:hover, .facilities .button:hover, .announcements .button:hover{
+        .info .button:hover, .report .button:hover, .facilities .button:hover, .announcements .button:hover, .unit .button:hover{
             background-color: rgba(255, 255, 255, 0.5);
         }
 
@@ -79,7 +75,7 @@ include("header2.php");
             font-size: 120%;
         }
 
-        .announcements .result{
+        .announcements .result, .unit .result{
             padding: 10px;
             border: 1px solid black;
 			text-align: center;
@@ -88,14 +84,14 @@ include("header2.php");
 			border-radius: 5px;
         }
 
-		.announcements .result td{
+		.announcements .result td, .unit .result td{
 			text-align: center;
 			height: 25px;
 			font-size: 100%;
 			padding: 10px 20px;
 		}
 
-		.announcements .result th{
+		.announcements .result th, .unit .result th{
 			font-size: 150%;
 			text-align: center;
 			font-weight: bold;
@@ -275,7 +271,7 @@ include("header2.php");
                 <tr>
                     <td></td>
                     <td>Selection: </td>
-                    <td id="left">
+                    <td>
                         <input type="radio" name="selection" value="gym" id="gym"><label for="gym">Gym</label>
                         <input type="radio" name="selection" value="pool" id="pool"><label for="pool">Pool</label>
                         <input type="radio" name="selection" value="badminton" id="badminton"><label for="badminton">Badminton Court</label>
@@ -445,6 +441,113 @@ include("header2.php");
 			}
 
 		?>
+    </div>
+
+    <div class="unit">
+        <form action="unitProcess.php" method="POST">
+            <div class="title">
+                <p>Unit Management</p>
+            </div>
+            
+            <table cellpadding=5px>
+
+                <tr>
+                    <td style="width: 20px"></td>
+                    <td></td>
+                    <td></td>
+                    <td style="width: 20px"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td>Block: </td>
+                    <td>
+                        <input type="radio" name="selection" value="A" id="A"><label for="A">A</label>
+                        <input type="radio" name="selection" value="B" id="B"><label for="B">B</label>
+                        <input type="radio" name="selection" value="C" id="C"><label for="C">C</label>
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>Floor: </td>
+                    <td><input type="number" name="floor" class="form" pattern=".{0,2}" placeholder="Enter 2 characters only." required></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>Unit Number: </td>
+                    <td><input type="number" name="unit" class="form" pattern=".{0,2}" placeholder="Enter 2 characters only." required></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit" class="button"></td>
+                    <td></td>
+				</tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+        </form>
+
+        <div class="title">
+            <p>Your Unit(s)</p>
+        </div>
+        <?php
+
+			$query = "SELECT noUnit, noFloor FROM unit WHERE email = '$email'";
+			$result = mysqli_query($conn, $query) or die(mysql_error());
+
+			if (mysqli_num_rows ($result) > 0)
+			{
+				echo "<table class='result'>";
+				echo "<col>";
+				echo "<col>";
+				echo "<col>";
+				echo "<tr>";
+				echo "<th>Unit</th>";
+                echo "<th>Floor</th>";
+
+				while ($row = mysqli_fetch_assoc($result))
+				{
+					echo "<tr>";
+					echo "<td>".$row['noUnit']."</td>";
+					echo "<td>".$row['noFloor']."</td>";
+					echo "</tr>";
+				}
+				echo"</table>";
+			}
+
+			else{
+				echo"<div class='title' style='text-decoration: underline'><p>No Data</p></div>";
+			}
+
+		?>
+
     </div>
 
 </body>

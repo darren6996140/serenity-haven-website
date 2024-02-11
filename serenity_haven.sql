@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2024 at 10:23 AM
+-- Generation Time: Feb 11, 2024 at 10:53 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -92,15 +92,16 @@ INSERT INTO `report` (`id`, `email`, `subject`, `details`) VALUES
 
 CREATE TABLE `unit` (
   `noUnit` varchar(10) NOT NULL,
-  `noFloor` int(2) NOT NULL
+  `noFloor` int(2) NOT NULL,
+  `email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `unit`
 --
 
-INSERT INTO `unit` (`noUnit`, `noFloor`) VALUES
-('babi', 69);
+INSERT INTO `unit` (`noUnit`, `noFloor`, `email`) VALUES
+('C-20-1', 20, 'liau');
 
 -- --------------------------------------------------------
 
@@ -113,18 +114,17 @@ CREATE TABLE `user` (
   `name` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `noPhone` varchar(12) DEFAULT NULL,
-  `status` varchar(10) NOT NULL,
-  `noUnit` varchar(10) DEFAULT NULL
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`email`, `name`, `password`, `noPhone`, `status`, `noUnit`) VALUES
-('admin', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin', 'admin', NULL),
-('liau', 'darren', '7e071fd9b023ed8f18458a73613a0834f6220bd5cc50357ba3493c6040a9ea8c', 'darren', 'owner', NULL),
-('secu1', 'babi', '4be1edd7388aafd5a4bdd03041a8347ea184e17987e87aaa792f6d7b71ba01a7', 'secu1', 'security', NULL);
+INSERT INTO `user` (`email`, `name`, `password`, `noPhone`, `status`) VALUES
+('admin', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'admin', 'admin'),
+('liau', 'darren', '7e071fd9b023ed8f18458a73613a0834f6220bd5cc50357ba3493c6040a9ea8c', 'darren', 'owner'),
+('secu1', 'babi', '4be1edd7388aafd5a4bdd03041a8347ea184e17987e87aaa792f6d7b71ba01a7', 'secu1', 'security');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ CREATE TABLE `visitor` (
   `name` varchar(255) NOT NULL,
   `noPhone` varchar(12) NOT NULL,
   `carPlate` varchar(10) NOT NULL,
-  `noUnit` varchar(10) NOT NULL
+  `noUnit` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -146,7 +146,7 @@ CREATE TABLE `visitor` (
 --
 
 INSERT INTO `visitor` (`id`, `email`, `name`, `noPhone`, `carPlate`, `noUnit`) VALUES
-(1, 'liau@liau.com', 'liau', 'babi', 'JS2600', 'babi');
+(1, 'liau@liau.com', 'liau', 'babi', 'JS2600', 'C-20-1');
 
 --
 -- Indexes for dumped tables
@@ -174,21 +174,21 @@ ALTER TABLE `report`
 -- Indexes for table `unit`
 --
 ALTER TABLE `unit`
-  ADD PRIMARY KEY (`noUnit`);
+  ADD PRIMARY KEY (`noUnit`),
+  ADD KEY `email` (`email`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`email`),
-  ADD KEY `user` (`noUnit`);
+  ADD PRIMARY KEY (`email`);
 
 --
 -- Indexes for table `visitor`
 --
 ALTER TABLE `visitor`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `visitor` (`noUnit`);
+  ADD KEY `unit` (`noUnit`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -223,16 +223,16 @@ ALTER TABLE `visitor`
 --
 
 --
--- Constraints for table `user`
+-- Constraints for table `unit`
 --
-ALTER TABLE `user`
-  ADD CONSTRAINT `user` FOREIGN KEY (`noUnit`) REFERENCES `unit` (`noUnit`);
+ALTER TABLE `unit`
+  ADD CONSTRAINT `email` FOREIGN KEY (`email`) REFERENCES `user` (`email`);
 
 --
 -- Constraints for table `visitor`
 --
 ALTER TABLE `visitor`
-  ADD CONSTRAINT `visitor` FOREIGN KEY (`noUnit`) REFERENCES `unit` (`noUnit`);
+  ADD CONSTRAINT `unit` FOREIGN KEY (`noUnit`) REFERENCES `unit` (`noUnit`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
