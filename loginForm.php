@@ -6,6 +6,7 @@
     <style>
         .formContainer{
             display: flex;
+            margin-top: 2%;
         }
 
         .forms{
@@ -122,7 +123,7 @@
                     <tr>
                         <td></td>
                         <td>Unit Num. :</td>
-                        <td><input type="text" name="noUnit" placeholder="C20-01" class="form" required></td>
+                        <td><input type="text" name="noUnit" placeholder="[Block]-[Floor]-[Unit]" class="form" required></td>
                         <td></td>
                     </tr>
 

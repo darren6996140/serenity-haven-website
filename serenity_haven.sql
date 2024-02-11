@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2024 at 10:53 AM
+-- Generation Time: Feb 11, 2024 at 11:31 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -101,7 +101,8 @@ CREATE TABLE `unit` (
 --
 
 INSERT INTO `unit` (`noUnit`, `noFloor`, `email`) VALUES
-('C-20-1', 20, 'liau');
+('C-20-1', 20, 'liau'),
+('lol', 20, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,7 +147,12 @@ CREATE TABLE `visitor` (
 --
 
 INSERT INTO `visitor` (`id`, `email`, `name`, `noPhone`, `carPlate`, `noUnit`) VALUES
-(1, 'liau@liau.com', 'liau', 'babi', 'JS2600', 'C-20-1');
+(1, 'liau@liau.com', 'liau', 'a', 'JS2600', 'C-20-1'),
+(2, 'visitor', 'visitor', 'visitor', 'visitor', NULL),
+(3, 'visitor', 'visitor', 'visitor', 'visitor', NULL),
+(4, 'visitor@visitor.com', 'visitor', 'visitor', 'visitor', 'lol'),
+(5, 'visitor@visitor.com', 'visitor', 'visitor', 'visitor', 'C-20-1'),
+(6, 'visitor@visitor.com', 'visitor', 'visitor', 'visitor', 'C-20-1');
 
 --
 -- Indexes for dumped tables
@@ -216,7 +222,7 @@ ALTER TABLE `report`
 -- AUTO_INCREMENT for table `visitor`
 --
 ALTER TABLE `visitor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

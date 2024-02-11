@@ -9,14 +9,14 @@ $noUnit=$_POST['noUnit'];
 $noPhone=$_POST['noPhone'];
 $carPlate=$_POST['carPlate'];
 
-$check = "SELECT noUnit FROM user WHERE noUnit = '$noUnit'";
+$check = "SELECT noUnit FROM unit WHERE noUnit = '$noUnit'";
 $result = mysqli_query($conn, $check) or die(mysqli_error());
 
-if (mysqli_num_rows($result)> 0)
+if (mysqli_num_rows($result) > 1)
 {
 	echo '<script>
 		alert("This unit does not exist, please try again.");
-		window.location.href="userForm.php";</script>';
+		window.location.href="loginForm.php";</script>';
 }
 
 else{
