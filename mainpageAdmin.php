@@ -18,7 +18,7 @@ include("header2.php");
 		}
 
 
-		.user, .report, .facilities, .announcements{
+		.user, .report, .facilities, .announcements, .unit{
             background-color: rgba(235, 235, 235, 0.5);
             padding-bottom: 20px;
             border-radius: 5px;
@@ -26,7 +26,7 @@ include("header2.php");
 			margin-top: 2%;
         }
 
-		.user h1, .report h1, .facilities h1, .announcements h1{
+		.user h1, .report h1, .facilities h1, .announcements h1, .unit h1{
             font-size: 300%;
             font-weight: bold;
             margin-top: 0px;
@@ -34,7 +34,7 @@ include("header2.php");
             padding: 10px 0px;
         }
 
-		.user .table, .report .table, .facilities .table, .announcements .table{
+		.user .table, .report .table, .facilities .table, .announcements .table ,.unit .table{
             padding: 10px;
             border: 1px solid black;
 			text-align: center;
@@ -43,14 +43,14 @@ include("header2.php");
 			border-radius: 5px;
         }
 
-		.user .table td, .report .table td, .facilities .table td, .announcements .table td{
+		.user .table td, .report .table td, .facilities .table td, .announcements .table td, .unit .table td{
 			text-align: center;
 			height: 25px;
 			font-size: 100%;
 			padding: 10px 20px;
 		}
 
-		.user .table th, .report .table th, .facilities .table th, .announcements .table th{
+		.user .table th, .report .table th, .facilities .table th, .announcements .table th, .unit .table th{
 			font-size: 150%;
 			text-align: center;
 			font-weight: bold;
@@ -122,7 +122,6 @@ include("header2.php");
 				echo "<th>Name</th>";
 				echo "<th>Phone Number</th>";
 				echo "<th>Status</th>";
-				echo "<th>Unit Number</th>";
 
 				while ($row = mysqli_fetch_assoc($result))
 				{
@@ -131,7 +130,6 @@ include("header2.php");
 					echo "<td>".$row['name']."</td>";
 					echo "<td>".$row['noPhone']."</td>";
 					echo "<td>".$row['status']."</td>";
-					echo "<td>".$row['noUnit']."</td>";
 					echo "</tr>";
 				}
 				echo"</table>";
@@ -312,6 +310,44 @@ include("header2.php");
 					echo "<td>".$row['subject']."</td>";
 					echo "<td>".$row['details']."</td>";
 					echo "<td><a href='deleteAnnouncement.php?id=".$row['id']."'> <img src='images/delete.png' width='50' height='50'> </a> </td>";
+					echo "</tr>";
+				}
+				echo"</table>";
+			}
+
+			else{
+				echo"<h1><u>No data</u></h1>";
+			}
+
+		?>
+	</div>
+
+	<div class="unit">
+
+		<h1>Units Info</h1>
+
+		<?php
+
+			$query = "SELECT * FROM unit";
+			$result = mysqli_query($conn, $query) or die(mysql_error());
+
+			if (mysqli_num_rows ($result) > 0)
+			{
+				echo "<table class='table'>";
+				echo "<col>";
+				echo "<col>";
+				echo "<col>";
+				echo "<tr>";
+				echo "<th>Unit Number</th>";
+				echo "<th>Floor Number</th>";
+				echo "<th>Email</th>";
+
+				while ($row = mysqli_fetch_assoc($result))
+				{
+					echo "<tr>";
+					echo "<td>".$row['noUnit']."</td>";
+					echo "<td>".$row['noFloor']."</td>";
+					echo "<td>".$row['email']."</td>";
 					echo "</tr>";
 				}
 				echo"</table>";
